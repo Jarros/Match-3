@@ -56,7 +56,7 @@ class Match3Game {
         
         for (let i = 1; i <= totalTextures; i++) {
             loader.load(
-                `assets/${i}.png`,
+                `https://cyborea.io/Match-3/assets/${i}.png`,
                 (texture) => {
                     
                     texture.magFilter = THREE.LinearFilter;
