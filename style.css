@@ -1,0 +1,311 @@
+/* Mobile-First Match-3 Advertising Banner Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    touch-action: manipulation;
+}
+
+#game-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+    color: #333;
+}
+
+/* Ad Banner Header */
+#ad-header {
+    margin-bottom: 15px;
+}
+
+#ad-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Game UI */
+#ui {
+    margin-bottom: 10px;
+}
+
+#score-board {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#score-board span {
+    background: rgba(102, 126, 234, 0.2);
+    padding: 6px 12px;
+    border-radius: 15px;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+/* Game Area */
+#game-area {
+    position: relative;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#game-canvas {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    touch-action: none;
+    max-width: 100%;
+    height: auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Tutorial Overlay */
+#tutorial-overlay {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    line-height: 1.3;
+}
+
+#tutorial-overlay small {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+#tutorial-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tutorial-arrow {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid rgba(0, 0, 0, 0.8);
+}
+
+/* Call to Action Section */
+#cta-section {
+    margin-top: 15px;
+}
+
+.cta-button {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px 0 rgba(238, 90, 36, 0.3);
+    width: 100%;
+    max-width: 280px;
+    touch-action: manipulation;
+}
+
+.cta-button:hover, .cta-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(238, 90, 36, 0.4);
+}
+
+.cta-text {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Game Over Modal */
+#game-over-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+#game-over-modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 320px;
+    width: 90%;
+    color: #333;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    color: #ff6b6b;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 480px) {
+    #game-container {
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    #ad-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .tagline {
+        font-size: 0.8rem;
+    }
+    
+    #score-board {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    #score-board span {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+    
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-height: 600px) {
+    #game-container {
+        padding: 8px;
+    }
+    
+    #ad-header {
+        margin-bottom: 8px;
+    }
+    
+    #ui {
+        margin-bottom: 8px;
+    }
+    
+    #game-area {
+        margin: 8px 0;
+    }
+    
+    #cta-section {
+        margin-top: 8px;
+    }
+}
+
+/* Animation Classes */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Gem Selection Highlight */
+.gem-selected {
+    filter: brightness(1.3) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+/* Performance Optimizations */
+* {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+}
+
+canvas {
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+} 
