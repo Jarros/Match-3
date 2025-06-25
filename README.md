@@ -17,3 +17,5 @@ cd dist
 
 # THEN OPEN /dist/packed-ad.html WITH ANY BROWSER OF CHOICE
 packed-ad.html
+
+[screenshot.png]
