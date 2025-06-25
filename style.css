@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Exo 2', 'Arial', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     display: flex;
@@ -19,18 +19,29 @@ body {
 }
 
 #game-container {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
+    /* Darker diagonal gradient: top-right ➜ bottom-left */
+    background: linear-gradient(
+        to bottom left,
+        rgba(18, 94, 120, 0.65) 0%,     /* dark teal */
+        rgba(32, 52, 155, 0.60) 35%,    /* deep royal blue */
+        rgba(68, 26, 175, 0.60) 70%,    /* deep blue-violet */
+        rgba(44, 0, 90, 0.70) 100%      /* rich indigo */
+    );
+    backdrop-filter: blur(18px);
+    border-radius: 18px;
     padding: 15px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 
+        0 8px 32px 0 rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 0 1px rgba(34, 193, 195, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     text-align: center;
     max-width: 400px;
     width: 100%;
     max-height: 100vh;
     overflow: hidden;
-    color: #333;
+    color: #fff;
+    position: relative;
 }
 
 /* Ad Banner Header */
@@ -39,18 +50,21 @@ body {
 }
 
 #ad-header h1 {
-    font-size: 1.8rem;
+    font-family: 'Orbitron', 'Exo 2', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
     margin-bottom: 5px;
     background: linear-gradient(45deg, #ff6b6b, #feca57);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: none;
+    letter-spacing: 1px;
 }
 
 .tagline {
     font-size: 0.9rem;
-    color: #666;
+    color: #fff;
     font-weight: 500;
 }
 
@@ -64,14 +78,16 @@ body {
     justify-content: space-around;
     margin-bottom: 10px;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 700;
+    font-family: 'Exo 2', sans-serif;
 }
 
 #score-board span {
-    background: rgba(102, 126, 234, 0.2);
+    /* lighter translucent pill */
+    background: rgba(255, 255, 255, 0.18);
     padding: 6px 12px;
     border-radius: 15px;
-    color: #333;
+    color: #fff;
     font-size: 0.9rem;
 }
 
@@ -148,8 +164,9 @@ body {
     border: none;
     color: white;
     padding: 12px 20px;
+    font-family: 'Exo 2', sans-serif;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 700;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -157,6 +174,8 @@ body {
     width: 100%;
     max-width: 280px;
     touch-action: manipulation;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .cta-button:hover, .cta-button:active {
@@ -167,7 +186,7 @@ body {
 .cta-text {
     margin-top: 8px;
     font-size: 0.8rem;
-    color: #666;
+    color: #fff;
 }
 
 /* Game Over Modal */
@@ -191,23 +210,27 @@ body {
 }
 
 .modal-content {
-    background: white;
+    background: rgba(0, 0, 0, 0.9);
     padding: 30px;
     border-radius: 20px;
     text-align: center;
     max-width: 320px;
     width: 90%;
-    color: #333;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .modal-content h2 {
+    font-family: 'Orbitron', 'Exo 2', sans-serif;
+    font-weight: 700;
     margin-bottom: 15px;
     color: #ff6b6b;
+    letter-spacing: 1px;
 }
 
 .modal-content p {
     margin-bottom: 20px;
-    color: #666;
+    color: #fff;
 }
 
 /* Responsive Design for Mobile */

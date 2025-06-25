@@ -8,5 +8,11 @@ A playable advertising banner for a Match-3 mobile game, built according to mobi
 git clone [repository-url]
 cd match3
 
+# install dependencies
+npm install
+
+# build single-line html (into /dist/)
+node build-inline.js
+
 # Node.js serve
 npx serve

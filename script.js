@@ -1,5 +1,6 @@
 /**
- * Match-3 TEST TASK
+ * Match-3 Game for Mobile Advertising Banner
+ * Compliant with MRAID v2.0 and optimized for mobile devices
  */
 class Match3Game {
     constructor() {
@@ -10,11 +11,11 @@ class Match3Game {
         
         
         this.grid = [];
-        this.gridSize = 6;
+        this.gridSize = 6; 
         this.gemTypes = 6;
         this.selectedGem = null;
         this.score = 0;
-        this.moves = 10;
+        this.moves = 10; 
         this.isAnimating = false;
         this.gameEnded = false;
         
@@ -34,6 +35,9 @@ class Match3Game {
         this.init();
     }
 
+    /**
+     * Initialize the game and MRAID
+     */
     init() {
         this.initMRAID();
         this.setupScene();
@@ -45,45 +49,41 @@ class Match3Game {
         });
     }
 
+    /**
+     * Load gem texture assets (required for game to work)
+     */
     loadGemTextures(callback) {
         this.gemTextures = [];
         const loader = new THREE.TextureLoader();
         let loadedCount = 0;
-        const totalTextures = 6;
+        const totalTextures = GEM_TEXTURES_B64.length;
         
-        console.log('Loading gem textures...');
+        console.log('Loading gem textures from inlined base64 data...');
         
-        
-        for (let i = 1; i <= totalTextures; i++) {
+        GEM_TEXTURES_B64.forEach((b64, idx) => {
             loader.load(
-                `https://cyborea.io/Match-3/assets/${i}.png`,
+                `data:image/png;base64,${b64}`,
                 (texture) => {
-                    
                     texture.magFilter = THREE.LinearFilter;
                     texture.minFilter = THREE.LinearMipMapLinearFilter;
                     texture.wrapS = THREE.ClampToEdgeWrapping;
                     texture.wrapT = THREE.ClampToEdgeWrapping;
-                    
-                    this.gemTextures[i - 1] = texture;
+                    this.gemTextures[idx] = texture;
                     loadedCount++;
-                    
-                    console.log(`Loaded texture ${i}/${totalTextures}`);
-                    
                     if (loadedCount === totalTextures) {
                         console.log('All gem textures loaded successfully!');
                         callback();
                     }
                 },
                 undefined,
-                (error) => {
-                    console.error(`FAILED to load texture ${i}:`, error);
-                    console.error('Make sure you are running a local server (npx http-server)');
-                    console.error('Textures cannot load from file:// protocol due to CORS');
-                }
+                (err) => console.error('Texture load error', err)
             );
-        }
+        });
     }
 
+    /**
+     * Initialize MRAID v2.0 for mobile advertising
+     */
     initMRAID() {
         if (typeof mraid !== 'undefined') {
             this.mraid = mraid;
@@ -94,6 +94,7 @@ class Match3Game {
                 });
             }
             
+            
             this.mraid.addEventListener('viewableChange', (viewable) => {
                 if (viewable) {
                     console.log('Ad became viewable');
@@ -102,7 +103,11 @@ class Match3Game {
         }
     }
 
+    /**
+     * Setup Three.js scene optimized for mobile performance
+     */
     setupScene() {
+        
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(0x2c3e50);
 
