@@ -13,6 +13,7 @@ npm install
 
 # build single-line html (into /dist/)
 node build-inline.js
+cd dist
 
-# Node.js serve
-npx serve
+# THEN OPEN /dist/packed-ad.html WITH ANY BROWSER OF CHOICE
+packed-ad.html
