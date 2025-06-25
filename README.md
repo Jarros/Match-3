@@ -8,7 +8,7 @@ A playable advertising banner for a Match-3 mobile game, built according to mobi
 ```bash
 # Clone the repository
 git clone [repository-url]
-cd match3
+cd Match-3
 
 # install dependencies
 npm install
