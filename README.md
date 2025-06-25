@@ -2,6 +2,8 @@
 
 A playable advertising banner for a Match-3 mobile game, built according to mobile advertising industry standards and optimized for mobile devices.
 
+![screenshot](/screenshot.png)
+
 ### Testing:
 ```bash
 # Clone the repository
@@ -18,4 +20,3 @@ cd dist
 # THEN OPEN /dist/packed-ad.html WITH ANY BROWSER OF CHOICE
 packed-ad.html
 
-[screenshot.png]
