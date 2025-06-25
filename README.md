@@ -2,9 +2,7 @@
 
 A playable advertising banner for a Match-3 mobile game, built according to mobile advertising industry standards and optimized for mobile devices.
 
-![screenshot](/screenshot.png)
-
-### Building and Testing:
+### Testing:
 ```bash
 # Clone the repository
 git clone [repository-url]

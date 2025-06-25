@@ -287,6 +287,35 @@ body {
     }
 }
 
+/* Landscape orientation tweaks */
+@media (orientation: landscape) {
+    /* Use the height wisely in landscape */
+    #game-container {
+        position: relative;
+        max-width: 90vw; /* container narrower than width */
+    }
+
+    /* Move score & moves into a vertical pill column on the right */
+    #score-board {
+        position: absolute;
+        top: 70px;
+        right: 16px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-end;
+    }
+
+    /* Ensure game area gets a little extra space */
+    #game-area {
+        margin: 10px 0;
+    }
+
+    /* Make sure CTA button is always visible and not cropped */
+    #cta-section {
+        margin-top: 12px; /* small spacing */
+    }
+}
+
 /* Animation Classes */
 @keyframes pulse {
     0% { transform: scale(1); }

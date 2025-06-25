@@ -112,13 +112,23 @@ class Match3Game {
         this.scene.background = new THREE.Color(0x2c3e50);
 
         
-        const maxWidth = Math.min(window.innerWidth - 40, 360);
-        const aspectRatio = 1; 
-        const canvasWidth = maxWidth;
-        const canvasHeight = maxWidth;
+        // Calculate optimal canvas size that fits in both portrait and landscape
+        const isLandscape = window.innerWidth > window.innerHeight;
+        let maxSize;
+        if (isLandscape) {
+            // Reserve some vertical space for header / UI / CTA (~160px)
+            const reserved = 140;
+            maxSize = Math.min(window.innerHeight - reserved, 300); // cap at 300 in landscape
+        } else {
+            const viewportMin = Math.min(window.innerWidth, window.innerHeight);
+            maxSize = Math.min(viewportMin - 40, 360);
+        }
+        const canvasWidth = maxSize;
+        const canvasHeight = maxSize;
 
         
-        this.camera = new THREE.PerspectiveCamera(60, aspectRatio, 0.1, 100);
+        // Create camera with mobile-optimized settings (square aspect)
+        this.camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
         this.camera.position.set(0, 0, 6);
 
         
@@ -282,10 +292,18 @@ class Match3Game {
         
         
         window.addEventListener('resize', () => {
-            const maxWidth = Math.min(window.innerWidth - 40, 360);
+            const isLandscape = window.innerWidth > window.innerHeight;
+            let maxSize;
+            if (isLandscape) {
+                const reserved = 140;
+                maxSize = Math.min(window.innerHeight - reserved, 300);
+            } else {
+                const viewportMin = Math.min(window.innerWidth, window.innerHeight);
+                maxSize = Math.min(viewportMin - 40, 360);
+            }
             this.camera.aspect = 1;
             this.camera.updateProjectionMatrix();
-            this.renderer.setSize(maxWidth, maxWidth);
+            this.renderer.setSize(maxSize, maxSize);
         });
     }
 
