@@ -14,9 +14,9 @@ cd Match-3
 npm install
 
 # build single-line html (into /dist/)
-node build-inline.js
+npm run build
 cd dist
 
-# THEN OPEN /dist/packed-ad.html WITH ANY BROWSER OF CHOICE
-packed-ad.html
+# THEN OPEN /dist/index.html WITH ANY BROWSER OF CHOICE
+index.html
 
