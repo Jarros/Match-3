@@ -382,10 +382,6 @@ class Match3Game {
      */
     showGameOverModal() { UIHelper.showGameOverModal(this); }
 
-    /**
-     * Handle Call-to-Action button clicks
-     */
-    handleCTAClick() { UIHelper.handleCTAClick(this); }
 
     /**
      * Debug method to check raycasting and gem detection

@@ -43,11 +43,11 @@ export class InteractionHandler {
 
 
         document.getElementById('install-btn').addEventListener('click', () => {
-            this.handleCTAClick();
+            UIHelper.handleCTAClick(this.game);
         });
 
         document.getElementById('play-full-game').addEventListener('click', () => {
-            this.handleCTAClick();
+            UIHelper.handleCTAClick(this.game);
         });
 
 
